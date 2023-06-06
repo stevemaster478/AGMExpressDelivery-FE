@@ -13,4 +13,8 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    // Ignora i warning durante la compilazione
+    allowNodeBuiltins: ["warning"],
+  },
 });

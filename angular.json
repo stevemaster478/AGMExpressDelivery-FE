@@ -74,7 +74,7 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "port": 4200,
-            "host": "localhost",
+            "host": "localhost"
           },
           "configurations": {
             "production": {
@@ -116,5 +116,5 @@
         }
       }
     }
-  },
+  }
 }

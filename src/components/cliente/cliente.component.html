@@ -1,0 +1,80 @@
+<h1>Lista Clienti</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Partita IVA</th>
+    <th>Cognome</th>
+    <th>Numero Telefono</th>
+    <th>Azioni</th>
+  </tr>
+  <tr *ngFor="let cliente of clienti">
+    <td>{{ cliente.nome }}</td>
+    <td>{{ cliente.partitaIva }}</td>
+    <td>{{ cliente.cognome }}</td>
+    <td>{{ cliente.numeroTelefono }}</td>
+    <td>
+      <button (click)="visualizzaDettagli(cliente.id)">Dettagli</button>
+      <button (click)="attivaModifica(cliente)">Modifica</button>
+      <button (click)="eliminaCliente(cliente.id)">Elimina</button>
+    </td>
+  </tr>
+</table>
+
+<h2>Aggiungi Cliente</h2>
+
+<form (submit)="creaCliente()">
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" [(ngModel)]="nuovoCliente.nome" required>
+
+  <label for="partitaIva">Partita IVA:</label>
+  <input type="text" id="partitaIva" name="partitaIva" [(ngModel)]="nuovoCliente.partitaIva" required>
+
+  <label for="cognome">Cognome:</label>
+  <input type="text" id="cognome" name="cognome" [(ngModel)]="nuovoCliente.cognome" required>
+
+  <label for="numeroTelefono">Numero Telefono:</label>
+  <input type="text" id="numeroTelefono" name="numeroTelefono" [(ngModel)]="nuovoCliente.numeroTelefono" required>
+
+  <button type="submit">Crea Cliente</button>
+</form>
+
+<div *ngIf="clienteSelezionato">
+  <h2>Dettagli Cliente</h2>
+  <p>Nome: {{ clienteSelezionato?.nome }}</p>
+  <p>Partita IVA: {{ clienteSelezionato?.partitaIva }}</p>
+  <p>Cognome: {{ clienteSelezionato?.cognome }}</p>
+  <p>Numero Telefono: {{ clienteSelezionato?.numeroTelefono }}</p>
+  <h3>Pacchi Inviati:</h3>
+  <ul>
+    <li *ngFor="let pacco of clienteSelezionato?.pacchiInviati">
+      {{ pacco.id }} - {{ pacco.tipo }}
+    </li>
+  </ul>
+  <h3>Pacchi Ricevuti:</h3>
+  <ul>
+    <li *ngFor="let pacco of clienteSelezionato?.pacchiRicevuti">
+      {{ pacco.id }} - {{ pacco.tipo }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="modalitaModifica">
+  <h2>Modifica Cliente</h2>
+  <form (submit)="salvaModifiche()" *ngIf="clienteModifica">
+    <label for="nomeModifica">Nome:</label>
+    <input type="text" id="nomeModifica" name="nomeModifica" [(ngModel)]="clienteModifica.nome" required>
+
+    <label for="partitaIvaModifica">Partita IVA:</label>
+    <input type="text" id="partitaIvaModifica" name="partitaIvaModifica" [(ngModel)]="clienteModifica.partitaIva" required>
+
+    <label for="cognomeModifica">Cognome:</label>
+    <input type="text" id="cognomeModifica" name="cognomeModifica" [(ngModel)]="clienteModifica.cognome" required>
+
+    <label for="numeroTelefonoModifica">Numero Telefono:</label>
+    <input type="text" id="numeroTelefonoModifica" name="numeroTelefonoModifica" [(ngModel)]="clienteModifica.numeroTelefono" required>
+
+    <button type="submit">Salva Modifiche</button>
+  </form>
+</div>
+

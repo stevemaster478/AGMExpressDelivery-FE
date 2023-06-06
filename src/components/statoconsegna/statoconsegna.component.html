@@ -1,0 +1,37 @@
+<h1>Stato Consegna</h1>
+
+<!-- Visualizza tutti gli stati consegna -->
+<div *ngIf="statiConsegna">
+  <h2>Elenco Stati Consegna</h2>
+  <ul>
+    <li *ngFor="let stato of statiConsegna">
+      <span>ID: {{ stato.id }}</span><br>
+      <span>Avanzamento: {{ stato.avanzamento }}</span><br>
+      <span>Stato Consegna: {{ stato.statoConsegna }}</span>
+      <button (click)="editStatoConsegna(stato)">Modifica</button>
+      <button (click)="deleteStatoConsegna(stato.id)">Elimina</button>
+    </li>
+  </ul>
+</div>
+
+<!-- Visualizza un singolo stato consegna -->
+<div *ngIf="statoConsegna">
+  <h2>Dettaglio Stato Consegna</h2>
+  <span>ID: {{ statoConsegna.id }}</span><br>
+  <span>Avanzamento: {{ statoConsegna.avanzamento }}</span><br>
+  <span>Stato Consegna: {{ statoConsegna.statoConsegna }}</span>
+</div>
+
+<!-- Form per creare o modificare uno stato consegna -->
+<div>
+  <h2>{{ editing ? 'Modifica Stato Consegna' : 'Crea Stato Consegna' }}</h2>
+  <form (ngSubmit)="saveStatoConsegna()">
+    <label>ID:</label>
+    <input type="number" [(ngModel)]="statoConsegna.id" [disabled]="editing" name="id" ngModel><br>
+    <label>Avanzamento:</label>
+    <input type="text" [(ngModel)]="statoConsegna.avanzamento" name="avanzamento" ngModel><br>
+    <label>Stato Consegna:</label>
+    <input type="text" [(ngModel)]="statoConsegna.statoConsegna" name="statoConsegna" ngModel><br>
+    <button type="submit">{{ editing ? 'Salva Modifiche' : 'Crea' }}</button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<h2>Furgoni</h2>
+
+<ul>
+  <li *ngFor="let furgone of furgoni">
+    {{ furgone?.modello }} (Targa: {{ furgone?.targa }})
+    <button (click)="deleteFurgone(furgone)">Elimina</button>
+  </li>
+</ul>
+
+<h3>Aggiungi Furgone</h3>
+<div>
+  <label>Modello:
+    <input [(ngModel)]="modello" placeholder="Modello">
+  </label>
+  <label>Targa:
+    <input [(ngModel)]="targa" placeholder="Targa">
+  </label>
+  <label>Capacità Carico:
+    <input [(ngModel)]="capacita" placeholder="Capacità Carico">
+  </label>
+  <button (click)="addFurgone()">Aggiungi</button>
+</div>
