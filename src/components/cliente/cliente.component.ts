@@ -51,6 +51,7 @@ export class ClienteComponent implements OnInit {
     this.modalitaModifica = true;
     this.clienteModifica = { ...cliente };
   }
+
   salvaModifiche() {
     if (this.clienteModifica) {
       this.clienteService
