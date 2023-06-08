@@ -13,24 +13,25 @@ export class ConsegnaComponent implements OnInit {
   consegnaModifica: Consegna | null = null;
   modalitaModifica = false;
   nuovaConsegna: Consegna = {
+  id: 0,
+  inizioConsegnaData: '',
+  fineConsegnaData: '',
+  targa: '',
+  idStatoConsegna: 0,
+  furgone: {
     id: 0,
-    inizioConsegnaData: '',
-    fineConsegnaData: '',
     targa: '',
-    idStatoConsegna: 0,
-    furgone: {
-      id: 0,
-      targa: '',
-      capacita: 0,
-      modello: '',
-    },
-    statoConsegna: {
-      id: 0,
-      avanzamento: '',
-      statoConsegna: '',
-    },
-    pacchi: [],
-  };
+    capacita: 0,
+    modello: ''
+  },
+  statoConsegna: {
+    id: 0,
+    avanzamento: '',
+    statoConsegna: ''
+  },
+  pacchi: []
+};
+
 
   constructor(private consegnaService: ConsegnaService) {}
 
@@ -66,25 +67,6 @@ export class ConsegnaComponent implements OnInit {
       .createConsegna(this.nuovaConsegna)
       .subscribe((consegna) => {
         this.consegne.push(consegna);
-        this.nuovaConsegna = {
-          id: 0,
-          inizioConsegnaData: '',
-          fineConsegnaData: '',
-          targa: '',
-          idStatoConsegna: 1,
-          furgone: {
-            id: 0,
-            targa: '',
-            capacita: 0,
-            modello: '',
-          },
-          statoConsegna: {
-            id: 1,
-            avanzamento: '',
-            statoConsegna: '',
-          },
-          pacchi: [],
-        };
       });
   }
 

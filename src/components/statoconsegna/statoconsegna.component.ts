@@ -20,7 +20,6 @@ export class StatoConsegnaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStatiConsegna();
-    this.getStatoConsegna(1); // Esempio di ID da recuperare
   }
 
   getStatiConsegna(): void {

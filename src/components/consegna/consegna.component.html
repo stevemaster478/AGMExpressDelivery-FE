@@ -2,36 +2,59 @@
 
 <ul>
   <li *ngFor="let consegna of consegne">
-    {{ consegna.id }} - {{ consegna.inizioConsegnaData }} - {{ consegna.fineConsegnaData }} - {{ consegna.targa }} - {{ consegna.idStatoConsegna }}
+    {{ consegna.id }} - {{ consegna.inizioConsegnaData }} - {{ consegna.fineConsegnaData }} - {{ consegna.targa }} - {{
+    consegna.idStatoConsegna }}
     <button (click)="selezionaConsegna(consegna.id)">Seleziona</button>
     <button (click)="attivaModifica(consegna)">Modifica</button>
     <button (click)="eliminaConsegna(consegna.id)">Elimina</button>
   </li>
 </ul>
 
-<div>
-  <h2>Nuova Consegna</h2>
-  <form (submit)="creaConsegna()">
-    <div class="form-group">
-      <label for="inizioConsegnaNuova">Inizio Consegna:</label>
-      <input type="text" id="inizioConsegnaNuova" name="inizioConsegnaNuova" class="form-control"
-        placeholder="Seleziona la data" [(ngModel)]="nuovaConsegna.inizioConsegnaData" ngbDatepicker #inizioConsegnaPicker="ngbDatepicker" required>
-      <button type="button" class="btn btn-sm btn-outline-primary" (click)="inizioConsegnaPicker.toggle()">Apri calendario</button>
-    </div>
+<h2>Dettaglio Consegna</h2>
 
-    <div class="form-group">
-      <label for="fineConsegnaNuova">Fine Consegna:</label>
-      <input type="text" id="fineConsegnaNuova" name="fineConsegnaNuova" class="form-control"
-        placeholder="Seleziona la data" [(ngModel)]="nuovaConsegna.fineConsegnaData" ngbDatepicker #fineConsegnaPicker="ngbDatepicker" required>
-      <button type="button" class="btn btn-sm btn-outline-primary" (click)="fineConsegnaPicker.toggle()">Apri calendario</button>
-    </div>
-
-    <label for="targaNuova">Targa:</label>
-    <input type="text" id="targaNuova" name="targaNuova" [(ngModel)]="nuovaConsegna.targa" required>
-
-    <label for="idStatoConsegnaNuova">ID Stato Consegna:</label>
-    <input type="number" id="idStatoConsegnaNuova" name="idStatoConsegnaNuova" [(ngModel)]="nuovaConsegna.idStatoConsegna" required>
-
-    <button type="submit">Crea Consegna</button>
-  </form>
+<div *ngIf="consegnaSelezionata">
+  <p>ID: {{ consegnaSelezionata.id }}</p>
+  <p>Inizio Consegna: {{ consegnaSelezionata.inizioConsegnaData }}</p>
+  <p>Fine Consegna: {{ consegnaSelezionata.fineConsegnaData }}</p>
+  <p>Targa: {{ consegnaSelezionata.targa }}</p>
+  <p>ID Stato Consegna: {{ consegnaSelezionata.idStatoConsegna }}</p>
 </div>
+
+<div *ngIf="modalitaModifica && consegnaModifica">
+  <h2>Modifica Consegna</h2>
+  <label>ID:</label>
+  <input type="text" [(ngModel)]="consegnaModifica.id" />
+  <br />
+  <label>Inizio Consegna:</label>
+  <input type="text" [(ngModel)]="consegnaModifica.inizioConsegnaData" />
+  <br />
+  <label>Fine Consegna:</label>
+  <input type="text" [(ngModel)]="consegnaModifica.fineConsegnaData" />
+  <br />
+  <label>Targa:</label>
+  <input type="text" [(ngModel)]="consegnaModifica.targa" />
+  <br />
+  <label>ID Stato Consegna:</label>
+  <input type="text" [(ngModel)]="consegnaModifica.idStatoConsegna" />
+  <br />
+  <button (click)="salvaModifiche()">Salva Modifiche</button>
+</div>
+
+<h2>Nuova Consegna</h2>
+
+<label>ID:</label>
+<input type="text" [(ngModel)]="nuovaConsegna.id" />
+<br />
+<label>Inizio Consegna:</label>
+<input type="text" [(ngModel)]="nuovaConsegna.inizioConsegnaData" />
+<br />
+<label>Fine Consegna:</label>
+<input type="text" [(ngModel)]="nuovaConsegna.fineConsegnaData" />
+<br />
+<label>Targa:</label>
+<input type="text" [(ngModel)]="nuovaConsegna.targa" />
+<br />
+<label>ID Stato Consegna:</label>
+<input type="text" [(ngModel)]="nuovaConsegna.idStatoConsegna" />
+<br />
+<button (click)="creaConsegna()">Crea Consegna</button>
