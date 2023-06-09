@@ -11,6 +11,7 @@ import { ClienteComponent } from 'src/components/cliente/cliente.component';
 import { ConsegnaComponent } from 'src/components/consegna/consegna.component';
 import { StatoConsegnaComponent } from 'src/components/statoconsegna/statoconsegna.component';
 import { RuoloComponent } from 'src/components/ruolo/ruolo.component';
+import { IndirizzoComponent } from '../components/indirizzo/indirizzo.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RuoloComponent } from 'src/components/ruolo/ruolo.component';
     ConsegnaComponent,
     StatoConsegnaComponent,
     RuoloComponent,
+    IndirizzoComponent,
   ],
   imports: [
     BrowserModule,
