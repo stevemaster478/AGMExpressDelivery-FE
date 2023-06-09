@@ -1,3 +1,4 @@
+import { IndirizzoComponent } from './../components/indirizzo/indirizzo.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FurgoneComponent } from 'src/components/furgone/furgone.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'cliente', component: ClienteComponent },
   { path: 'consegna', component: ConsegnaComponent },
   { path: 'stato_consegna', component: StatoConsegnaComponent },
+  { path: 'indirizzo', component: IndirizzoComponent},
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClienteComponent } from 'src/components/cliente/cliente.component';
 import { ConsegnaComponent } from 'src/components/consegna/consegna.component';
 import { StatoConsegnaComponent } from 'src/components/statoconsegna/statoconsegna.component';
+import { IndirizzoComponent } from '../components/indirizzo/indirizzo.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { StatoConsegnaComponent } from 'src/components/statoconsegna/statoconseg
     ClienteComponent,
     ConsegnaComponent,
     StatoConsegnaComponent,
+    IndirizzoComponent,
   ],
   imports: [
     BrowserModule,

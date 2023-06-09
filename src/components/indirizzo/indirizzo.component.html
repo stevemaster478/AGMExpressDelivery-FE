@@ -1,0 +1,83 @@
+<h1>Lista indirizzi</h1>
+
+
+
+
+<table>
+  <tr>
+    <th>Via</th>
+    <th>Cap</th>
+    <th>Numero Civico</th>
+    <th>Interno</th>
+    <th>Citta</th>
+    <th>Cliente</th>
+  </tr>
+  <tr *ngFor="let indirizzo of indirizzi">
+    <td>{{ indirizzo.via }}</td>
+    <td>{{ indirizzo.cap }}</td>
+    <td>{{ indirizzo.numeroCivico }}</td>
+    <td>{{ indirizzo.interno }}</td>
+    <td>{{ indirizzo.citta }}</td>
+    <td>{{ indirizzo.cliente.id }}</td>
+    <td>
+      <button (click)="visualizzaDettagli(indirizzo.id)">Dettagli</button>
+      <button (click)="attivaModifica(indirizzo)">Modifica</button>
+      <button (click)="eliminaIndirizzo(indirizzo.id)">Elimina</button>
+    </td>
+  </tr>
+</table>
+
+<h2>Aggiungi indirizzo</h2>
+
+<form (submit)="creaIndirizzo()">
+
+  <label for="via">Via</label>
+  <input type="text" id="via" name="via" [(ngModel)]="nuovoIndirizzo.via" required>
+
+  <label for="cap">cap</label>
+  <input type="number" id="cap" name="cap" [(ngModel)]="nuovoIndirizzo.cap" required>
+
+  <label for="numeroCivico">Numero Civico</label>
+  <input type="number" id="numeroCivico" name="numeroCivico" [(ngModel)]="nuovoIndirizzo.numeroCivico" required>
+
+  <label for="interno">Interno</label>
+  <input type="text" id="interno" name="interno" [(ngModel)]="nuovoIndirizzo.interno" required>
+
+  <label for="citta">Citta</label>
+  <input type="text" id="citta" name="citta" [(ngModel)]="nuovoIndirizzo.citta" required>
+
+  <button type="submit">Crea indirizzo</button>
+
+</form>
+
+<div *ngIf="indirizzoSelezionato">
+  <h2>Dettagli indirizzo</h2>
+  <p>Via: {{ indirizzoSelezionato?.via }}</p>
+  <p>cap: {{ indirizzoSelezionato?.cap }}</p>
+  <p>numero Civico {{ indirizzoSelezionato?.numeroCivico }}</p>
+  <p>Interno {{ indirizzoSelezionato?.interno }}</p>
+  <p>Citta{{indirizzoSelezionato?.citta}}</p>
+</div>
+
+<div *ngIf="modalitaModifica">
+  <h2>Modifica indirizzo</h2>
+  <form (submit)="salvaModifiche()" *ngIf="indirizzoModifica">
+    <label for="viaMod">Via</label>
+    <input type="text" id="viaMod" name="viaMod" [(ngModel)]="indirizzoModifica.via" required>
+
+    <label for="capModifica">CAP</label>
+    <input type="number" id="capModifica" name="capModifica" [(ngModel)]="indirizzoModifica.cap" required>
+
+    <label for="numeroCivicoModifica">Numero Civico</label>
+    <input type="number" id="numeroCivicoModifica" name="numeroCivicoModifica" [(ngModel)]="indirizzoModifica.numeroCivico" required>
+
+    <label for="internoMod">Iterno</label>
+    <input type="text" id="internoMod" name="internoMod" [(ngModel)]="indirizzoModifica.interno" required>
+
+
+    <label for="cittaMod">Citta</label>
+    <input type="text" id="cittaMod" name="cittaMod" [(ngModel)]="indirizzoModifica.citta" required>
+
+    <button type="submit">Salva Modifiche</button>
+  </form>
+</div>
