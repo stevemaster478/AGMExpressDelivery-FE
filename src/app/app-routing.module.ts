@@ -6,6 +6,7 @@ import { ClienteComponent } from 'src/components/cliente/cliente.component';
 import { ConsegnaComponent } from 'src/components/consegna/consegna.component';
 import { StatoConsegnaComponent } from 'src/components/statoconsegna/statoconsegna.component';
 import { RuoloComponent } from 'src/components/ruolo/ruolo.component';
+import { PaccoComponent } from 'src/components/pacco/pacco.component';
 
 const routes: Routes = [
   { path: 'furgone', component: FurgoneComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'consegna', component: ConsegnaComponent },
   { path: 'stato_consegna', component: StatoConsegnaComponent },
   { path: 'ruolo', component: RuoloComponent },
-  { path: 'indirizzo', component: IndirizzoComponent},
+  { path: 'indirizzo', component: IndirizzoComponent },
+  { path: 'pacco', component: PaccoComponent }
 ];
 
 @NgModule({

@@ -41,10 +41,10 @@
 
 <div *ngIf="clienteSelezionato">
   <h2>Dettagli Cliente</h2>
-  <p>Nome: {{ clienteSelezionato?.nome }}</p>
-  <p>Partita IVA: {{ clienteSelezionato?.partitaIva }}</p>
-  <p>Cognome: {{ clienteSelezionato?.cognome }}</p>
-  <p>Numero Telefono: {{ clienteSelezionato?.numeroTelefono }}</p>
+  <p>Nome: {{ clienteSelezionato.nome }}</p>
+  <p>Partita IVA: {{ clienteSelezionato.partitaIva }}</p>
+  <p>Cognome: {{ clienteSelezionato.cognome }}</p>
+  <p>Numero Telefono: {{ clienteSelezionato.numeroTelefono }}</p>
   <h3>Pacchi Inviati:</h3>
   <ul>
     <li *ngFor="let pacco of clienteSelezionato?.pacchiInviati">
