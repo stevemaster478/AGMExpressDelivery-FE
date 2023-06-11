@@ -1,16 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Pacco } from '../../models/pacco.model';
 import { PaccoService } from '../../services/pacco.service';
-=======
-import { Pacco } from 'src/models/pacco.model';
->>>>>>> 431363a72234d24da3e23d62b58bfef94429384d
 
 @Component({
   selector: 'app-pacco',
   templateUrl: './pacco.component.html',
-<<<<<<< HEAD
   styleUrls: ['./pacco.component.css'],
 })
 export class PaccoComponent implements OnInit {
@@ -90,13 +85,4 @@ export class PaccoComponent implements OnInit {
     this.isEditing = false;
     this.paccoForm.reset();
   }
-=======
-  styleUrls: ['./pacco.component.css']
-})
-export class PaccoComponent implements OnInit {
-  ngOnInit() {
-    pacchi: Pacco[] = [];
-  }
-
->>>>>>> 431363a72234d24da3e23d62b58bfef94429384d
 }
