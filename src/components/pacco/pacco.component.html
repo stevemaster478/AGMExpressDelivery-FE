@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2>Pacchi</h2>
 
 <form [formGroup]="paccoForm" (ngSubmit)="submitPaccoForm()">
@@ -87,3 +88,37 @@
     </tr>
   </tbody>
 </table>
+=======
+<div>
+  <h1>Lista Pacchi</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Mittente</th>
+        <th>Destinatario</th>
+        <th>Peso</th>
+        <th>Stato</th>
+        <th>Tracking Code</th>
+        <th>Operazioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pacco of pacchi">
+        <td>{{ pacco.id }}</td>
+        <td>{{ pacco.mittente.nome }} {{ pacco.mittente.cognome }}</td>
+        <td>{{ pacco.destinatario.nome }} {{ pacco.destinatario.cognome }}</td>
+        <td>{{ pacco.peso }}</td>
+        <td>{{ pacco.stato }}</td>
+        <td>{{ pacco.trackingCode }}</td>
+        <td>
+          <button (click)="deletePacco(pacco)">Cancella</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="addPacco()">Aggiungi Pacco</button>
+</div>
+>>>>>>> 431363a72234d24da3e23d62b58bfef94429384d
