@@ -1,25 +1,37 @@
-import { IndirizzoComponent } from './../components/indirizzo/indirizzo.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FurgoneComponent } from 'src/components/furgone/furgone.component';
-import { ClienteComponent } from 'src/components/cliente/cliente.component';
-import { ConsegnaComponent } from 'src/components/consegna/consegna.component';
-import { StatoConsegnaComponent } from 'src/components/statoconsegna/statoconsegna.component';
-import { RuoloComponent } from 'src/components/ruolo/ruolo.component';
-import { PaccoComponent } from 'src/components/pacco/pacco.component';
+import { AuthGuard } from '@auth0/auth0-angular';
+import { FurgoneComponent } from './components/furgone/furgone.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
+import { ConsegnaComponent } from './components/consegna/consegna.component';
+import { StatoConsegnaComponent } from './components/statoconsegna/statoconsegna.component';
+import { IndirizzoComponent } from './components/indirizzo/indirizzo.component';
+import { RuoloComponent } from './components/ruolo/ruolo.component';
+import { PaccoComponent } from './components/pacco/pacco.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 const routes: Routes = [
+  { path: 'callback', component: CallbackComponent },
   { path: 'furgone', component: FurgoneComponent },
   { path: 'cliente', component: ClienteComponent },
   { path: 'consegna', component: ConsegnaComponent },
   { path: 'stato_consegna', component: StatoConsegnaComponent },
   { path: 'ruolo', component: RuoloComponent },
   { path: 'indirizzo', component: IndirizzoComponent },
-  { path: 'pacco', component: PaccoComponent }
+  { path: 'pacco', component: PaccoComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
