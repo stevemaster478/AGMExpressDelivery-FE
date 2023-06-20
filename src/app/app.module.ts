@@ -14,7 +14,8 @@ import { IndirizzoComponent } from './components/indirizzo/indirizzo.component';
 import { PaccoComponent } from './components/pacco/pacco.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     RuoloComponent,
     IndirizzoComponent,
     PaccoComponent,
-    DashboardComponent,
     LoginComponent,
+    UserDashboardComponent,
+    HomepageComponent,
   ],
   imports: [
     AuthModule.forRoot({

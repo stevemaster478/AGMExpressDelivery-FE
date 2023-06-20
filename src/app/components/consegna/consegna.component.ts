@@ -71,6 +71,18 @@ export class ConsegnaComponent implements OnInit {
   }
 
   caricaConsegne(): void {
+    //in base al ruolo che si trova nel local storage carica o tutte le consegne oppure solo le consegne del user loggato
+
+    if(true){
+      this.consegnaService.getConsegne().subscribe(
+        ()=>{
+
+        }
+      )
+    }
+
+
+
     this.consegnaService.getConsegne().subscribe((consegne) => {
       this.consegne = consegne;
     });

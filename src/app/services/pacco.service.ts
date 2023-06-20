@@ -8,6 +8,8 @@ import { environments } from 'src/environments/environments';
   providedIn: 'root',
 })
 export class PaccoService {
+
+
   private apiUrl = `${environments.apiUrl}/pacchi`; // Aggiorna l'URL con l'endpoint corretto per i pacchi
 
   constructor(private http: HttpClient) {}
@@ -15,6 +17,12 @@ export class PaccoService {
   getPacchi(): Observable<Pacco[]> {
     return this.http.get<Pacco[]>(this.apiUrl);
   }
+
+
+  getPacchiUtente(idUtente: number): Observable<Pacco[]> {
+    return this.http.post<Pacco[]>(this.apiUrl, idUtente);
+  }
+
 
   getPacco(id: number): Observable<Pacco> {
     const url = `${this.apiUrl}/${id}`;
