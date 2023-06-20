@@ -1,7 +1,4 @@
-<h1>Lista indirizzi</h1>
-
-
-
+<!--  <h1>Lista indirizzi</h1>
 
 <table>
   <tr>
@@ -80,4 +77,29 @@
 
     <button type="submit">Salva Modifiche</button>
   </form>
+</div> -->
+
+<div class="col-md-9">
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Via</th>
+      <th>Cap</th>
+      <th>Numero Civico</th>
+      <th>Interno</th>
+      <th>Citta</th>
+      <th>Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let indirizzo of indirizzi">
+      <td>{{ indirizzo.citta }}</td>
+      <td>{{ indirizzo.via }}</td>
+      <td>{{ indirizzo.numeroCivico }}</td>
+      <td>{{ indirizzo.interno }}</td>
+      <td>{{ indirizzo.cap }}</td>
+      <td>{{ indirizzo.cliente.id }}</td>
+    </tr>
+  </tbody>
+</table>
 </div>

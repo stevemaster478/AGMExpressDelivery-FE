@@ -1,4 +1,4 @@
-<h2>Furgoni</h2>
+<!-- <h2>Furgoni</h2>
 
 <ul>
   <li *ngFor="let furgone of furgoni">
@@ -19,4 +19,22 @@
     <input [(ngModel)]="capacita" placeholder="Capacità Carico">
   </label>
   <button (click)="addFurgone()">Aggiungi</button>
-</div>
+</div> -->
+
+
+<div class="col-md-9">
+  <table class="table table-striped">
+   <thead>
+     <tr>
+       <th>Modello</th>
+       <th>Targa</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let furgone of furgoni">
+       <td>{{ furgone.modello }}</td>
+       <td>{{ furgone.targa }}</td>
+     </tr>
+   </tbody>
+ </table>
+ </div>

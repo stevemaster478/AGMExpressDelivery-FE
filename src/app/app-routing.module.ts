@@ -1,3 +1,4 @@
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@auth0/auth0-angular';
@@ -8,7 +9,6 @@ import { StatoConsegnaComponent } from './components/statoconsegna/statoconsegna
 import { IndirizzoComponent } from './components/indirizzo/indirizzo.component';
 import { RuoloComponent } from './components/ruolo/ruolo.component';
 import { PaccoComponent } from './components/pacco/pacco.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { CallbackComponent } from './components/callback/callback.component';
 
@@ -22,12 +22,7 @@ const routes: Routes = [
   { path: 'indirizzo', component: IndirizzoComponent },
   { path: 'pacco', component: PaccoComponent },
   { path: 'login', component: LoginComponent },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuard],
-  },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {path: 'dashboard', component: UserDashboardComponent}
 ];
 
 @NgModule({

@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { InputTextModule } from 'primeng/inputtext';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +14,8 @@ import { PaccoComponent } from './components/pacco/pacco.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     RuoloComponent,
     IndirizzoComponent,
     PaccoComponent,
-    DashboardComponent,
     LoginComponent,
+    UserDashboardComponent,
+    HomepageComponent,
   ],
   imports: [
     AuthModule.forRoot({
@@ -42,9 +42,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    InputTextModule,
     ReactiveFormsModule,
-    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,3 +1,5 @@
+import { Cliente } from './../../models/cliente.model';
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Pacco } from '../../models/pacco.model';
@@ -23,7 +25,20 @@ export class PaccoComponent implements OnInit {
   }
 
   getPacchi(): void {
+
+    //se il ruolo è l'admin, ovvero localstorage.get etc etc
     this.paccoService.getPacchi().subscribe((pacchi) => (this.pacchi = pacchi));
+
+    /* else if(false){
+      const sessionUser: Cliente = JSON.parse(window.localStorage.getItem('customer') || '{}');
+
+      this.paccoService.getPacchiUtente(sessionUser.id).subscribe(
+        (pacchi)=>{
+            this.pacchi = pacchi;
+        }
+      );
+     }*/
+
   }
 
   createPaccoForm(): FormGroup {
