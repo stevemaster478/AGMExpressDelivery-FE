@@ -1,0 +1,23 @@
+# File specifici
+README.md
+LICENSE
+docker-compose.yml
+docker-compose.prod.yml
+.vscode
+.idea
+.editorconfig
+
+# Cartelle specifiche
+node_modules
+dist
+coverage
+logs
+tmp
+
+# File generati dall'IDE
+.DS_Store
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
