@@ -1,7 +1,6 @@
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '@auth0/auth0-angular';
 import { FurgoneComponent } from './components/furgone/furgone.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { ConsegnaComponent } from './components/consegna/consegna.component';
@@ -22,7 +21,7 @@ const routes: Routes = [
   { path: 'indirizzo', component: IndirizzoComponent },
   { path: 'pacco', component: PaccoComponent },
   { path: 'login', component: LoginComponent },
-  {path: 'dashboard', component: UserDashboardComponent}
+  { path: 'dashboard', component: UserDashboardComponent }
 ];
 
 @NgModule({

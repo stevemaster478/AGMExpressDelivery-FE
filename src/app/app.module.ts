@@ -1,4 +1,6 @@
 import { AuthModule, HttpInterceptorConfig } from '@auth0/auth0-angular';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +18,9 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -30,14 +35,15 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     LoginComponent,
     UserDashboardComponent,
     HomepageComponent,
+    SidebarComponent,
   ],
   imports: [
     AuthModule.forRoot({
       domain: 'agmexpress.eu.auth0.com',
       clientId: 'dKUca8YM6aoH5Eg2Zdl2DOW5tsZJgT4T',
       authorizationParams: {
-      redirect_uri: 'http://localhost:4200/dashboard'
-    },
+        redirect_uri: 'http://localhost:4200/dashboard',
+      },
     }),
     BrowserModule,
     HttpClientModule,
@@ -45,6 +51,11 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ToggleButtonModule,
+    BrowserAnimationsModule,
+    SidebarModule,
+    MenubarModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
