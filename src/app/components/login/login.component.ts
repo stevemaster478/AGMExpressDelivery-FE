@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@auth0/auth0-angular';
-
 
 @Component({
   selector: 'app-login',
@@ -9,12 +7,10 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(
-    public auth: AuthService,
-    private router: Router,
-  ) { }
+  constructor(private router: Router) { }
+
 
   ngOnInit(): void {
-    this.auth.loginWithRedirect();
+    this.router.navigate(['/login']);
   }
 }
