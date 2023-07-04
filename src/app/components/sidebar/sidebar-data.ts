@@ -5,12 +5,12 @@ export const navbarData = [
     label: 'Dashboard',
   },
   {
-    routeLink: 'indirizzo',
+    routeLink: '/indirizzo',
     icon: 'fal fa-location',
     label: 'Addresses',
   },
   {
-    routeLink: 'pacco',
+    routeLink: '/pacco',
     icon: 'fal fa-box-open',
     label: 'Packages',
   },
@@ -19,5 +19,5 @@ export const navbarData = [
     icon: 'fal fa-user',
     label: 'Account',
   },
-  
+
 ];

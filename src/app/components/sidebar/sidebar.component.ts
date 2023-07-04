@@ -55,6 +55,7 @@ export class SidebarComponent implements OnInit {
   darkTheme = true;
   sidebarThemeClass = '';
 
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.screenWidth = window.innerWidth;

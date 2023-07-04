@@ -16,10 +16,14 @@ import { IndirizzoComponent } from './components/indirizzo/indirizzo.component';
 import { PaccoComponent } from './components/pacco/pacco.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboards/dashboard/dashboard.component';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { LogoutComponent } from './components/logout/logout.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { MenubarModule } from 'primeng/menubar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 
 @NgModule({
   declarations: [
@@ -32,10 +36,9 @@ import { LogoutComponent } from './components/logout/logout.component';
     IndirizzoComponent,
     PaccoComponent,
     LoginComponent,
-    DashboardComponent,
+    UserDashboardComponent,
     HomepageComponent,
     SidebarComponent,
-    LogoutComponent,
   ],
   imports: [
     AuthModule.forRoot({
@@ -53,6 +56,10 @@ import { LogoutComponent } from './components/logout/logout.component';
     ReactiveFormsModule,
     ToggleButtonModule,
     BrowserAnimationsModule,
+    SidebarModule,
+    MenubarModule,
+    FontAwesomeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

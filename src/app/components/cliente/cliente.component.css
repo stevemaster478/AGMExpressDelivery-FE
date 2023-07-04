@@ -1,0 +1,57 @@
+li { background: rgb(177, 171, 171); }
+li:nth-child(odd) { background: rgb(177, 171, 171); }
+
+
+
+
+.editButtons{
+  padding: 0;
+  border: none;
+  background: none;
+  margin-left: 2em;
+}
+
+.searchButton{
+  background-color: #000000; /* Green */
+  border: none;
+  color: white;
+  margin-left: 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 150px;
+  height: max-content;
+
+}
+
+
+input{
+  background-color: #D9D9D9;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+}
+
+
+td {
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+  background-color: #D9D9D9;
+
+
+}
