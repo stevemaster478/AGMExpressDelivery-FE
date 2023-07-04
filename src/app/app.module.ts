@@ -21,6 +21,9 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 
 @NgModule({
   declarations: [
@@ -55,6 +58,7 @@ import { MenubarModule } from 'primeng/menubar';
     BrowserAnimationsModule,
     SidebarModule,
     MenubarModule,
+    FontAwesomeModule
 
   ],
   providers: [],

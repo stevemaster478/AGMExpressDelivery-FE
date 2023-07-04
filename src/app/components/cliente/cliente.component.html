@@ -1,4 +1,4 @@
-<h1>Lista Clienti</h1>
+<!-- <h1>Lista Clienti</h1>
 
 <table>
   <tr>
@@ -76,5 +76,89 @@
 
     <button type="submit">Salva Modifiche</button>
   </form>
+</div>
+
+ -->
+ <br>
+ <br>
+
+ <div class="col-md-9">
+  <div class="mb-4 mt-3 input-group">
+    <input type="text" placeholder="Search" class="form-control mb-2">
+    <div class="input-group-append">
+      <button class="searchButton btn btn-primary" type="button">Search</button>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <table class="table table-hover">
+
+    <br>
+    <tbody>
+      <tr *ngFor="let cliente of clienti">
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.cognome }}</td>
+        <td>{{ cliente.partitaIva }}</td>
+        <td>
+          <button class="editButtons" (click)="selectClient()" (click) ="clienteSelezionato=cliente" data-bs-toggle="modal" data-bs-target="#modifyModal"><i class="bi bi-pencil-fill"></i>
+          </button>
+          <!-- modal for modify -->
+          <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+                </div>
+                <div class="modal-body modalbodyText"></div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <div class="quantity">
+                    <button class="btn btn-dark"><strong>-</strong></button>
+                    <input class="inputbox" text="text">
+                    <button class="btn btn-dark"><strong>+</strong></button>
+                  </div>
+                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <button class="editButtons" (click)="selectClient()" (click) ="clienteSelezionato=cliente" data-bs-toggle="modal" data-bs-target="#deleteModal" ><i class="bi bi-trash-fill"></i>
+          </button>
+          <!-- delete client modal-->
+
+          <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+                </div>
+                <div class="modal-body modalbodyText"></div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <div class="quantity">
+                    <button class="btn btn-dark"><strong>-</strong></button>
+                    <input class="inputbox" text="text">
+                    <button class="btn btn-dark"><strong>+</strong></button>
+                  </div>
+                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 

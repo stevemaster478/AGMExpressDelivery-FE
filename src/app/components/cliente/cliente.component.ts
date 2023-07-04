@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../models/cliente.model';
 import { ClienteService } from '../../services/cliente.service';
+import { faCoffee, IconDefinition, IconLookup } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-cliente',
@@ -8,6 +10,17 @@ import { ClienteService } from '../../services/cliente.service';
   styleUrls: ['./cliente.component.css'],
 })
 export class ClienteComponent implements OnInit {
+
+
+
+  selectClient() {
+    throw new Error('Method not implemented.');
+  }
+
+
+  faCoffee: IconLookup = faCoffee;
+
+
   clienti: Cliente[] = [];
   clienteSelezionato?: Cliente;
   clienteModifica: Cliente | null;
@@ -108,4 +121,11 @@ export class ClienteComponent implements OnInit {
       });
     }
   }
+
+
+  perform(){
+    console.log("chiaoooo")
+  }
+
+
 }
