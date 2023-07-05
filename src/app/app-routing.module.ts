@@ -1,3 +1,4 @@
+import { MainpageComponent } from './components/Homepage/mainpage/mainpage.component';
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'indirizzo', component: IndirizzoComponent },
   { path: 'pacco', component: PaccoComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: UserDashboardComponent }
+  { path: 'dashboard', component: UserDashboardComponent },
+  { path: 'mainpage', component: MainpageComponent}
 ];
 
 @NgModule({
