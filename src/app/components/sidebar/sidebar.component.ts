@@ -13,6 +13,8 @@ import {
   HostListener,
 } from '@angular/core';
 import { navbarData } from './sidebar-data';
+import { AuthService } from '@auth0/auth0-angular';
+import { Router } from '@angular/router';
 
 interface SidebarToggle {
   screenWidth: number;
@@ -48,13 +50,14 @@ interface SidebarToggle {
   ],
 })
 export class SidebarComponent implements OnInit {
+  constructor(private auth: AuthService, private router: Router) {}
+
   @Output() onTogglesidebar: EventEmitter<SidebarToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
   navData = navbarData;
   darkTheme = true;
   sidebarThemeClass = '';
-
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -71,10 +74,11 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
     this.setThemeClass();
+    this.collapsed = true;
   }
 
   toggleCollapse(): void {
-    this.collapsed = !this.collapsed;
+    this.collapsed = true;
     this.onTogglesidebar.emit({
       collapsed: this.collapsed,
       screenWidth: this.screenWidth,
@@ -82,7 +86,8 @@ export class SidebarComponent implements OnInit {
   }
 
   logout(): void {
-    window.location.href = '/login';
+    this.collapsed = false;
+    this.auth.logout();
   }
 
   switchTheme(): void {

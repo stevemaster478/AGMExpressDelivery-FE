@@ -16,41 +16,34 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
-  { path: 'callback', component: CallbackComponent, canActivate: [] },
+  { path: 'callback', component: CallbackComponent,},
   {
     path: 'furgone',
     component: FurgoneComponent,
-    canActivate: [AuthenticationService, AdminGuard],
   },
   {
     path: 'cliente',
     component: ClienteComponent,
-    canActivate: [AuthenticationService, AdminGuard],
   },
   {
     path: 'consegna',
     component: ConsegnaComponent,
-    canActivate: [AuthenticationService, AuthGuard],
   },
   {
     path: 'stato_consegna',
-    component: StatoConsegnaComponent,
-    canActivate: [AuthenticationService, AdminGuard],
+    component: StatoConsegnaComponent
   },
   {
     path: 'ruolo',
-    component: RuoloComponent,
-    canActivate: [AuthenticationService, AdminGuard],
+    component: RuoloComponent
   },
   {
     path: 'indirizzo',
     component: IndirizzoComponent,
-    canActivate: [AuthenticationService, AdminGuard],
   },
   {
     path: 'pacco',
     component: PaccoComponent,
-    canActivate: [AuthenticationService, AdminGuard],
   },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
@@ -58,6 +51,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: SidebarComponent,
   },
+  { path: '', component: SidebarComponent}
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pacco } from '../models/pacco.model';
-import { environments } from 'src/environments/environments';
+import { environments } from './../../environments/environments';
 
 @Injectable({
   providedIn: 'root',

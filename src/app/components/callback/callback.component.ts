@@ -11,6 +11,6 @@ export class CallbackComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.router.navigate(['/dashboard']);
+    // this.router.navigate(['/dashboard']);
   }
 }

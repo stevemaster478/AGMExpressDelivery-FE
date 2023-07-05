@@ -22,7 +22,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -57,6 +57,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ToggleButtonModule,
     BrowserAnimationsModule,
     SidebarModule,
+    RouterModule,
     MenubarModule,
     FontAwesomeModule
 

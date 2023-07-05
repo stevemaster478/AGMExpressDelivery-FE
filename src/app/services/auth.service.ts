@@ -36,7 +36,7 @@ export class AuthenticationService {
     return this.isAuthenticated().pipe(
       map((isAuthenticated) => {
         if (isAuthenticated) {
-          this.redirectToDashboard();
+          // this.redirectToDashboard();
           return false;
         }
         return true;
@@ -52,7 +52,7 @@ export class AuthenticationService {
     this.auth.logout();
     this.setUserRole(null);
     localStorage.removeItem('access_token'); // Rimuovi il token di accesso da localStorage al momento del logout
-    this.router.navigate(['/login']); // Reindirizza alla pagina di login
+    this.auth.loginWithRedirect();
   }
 
   async setUserRoleFromToken(user: User | null | undefined): Promise<void> {
@@ -82,7 +82,7 @@ export class AuthenticationService {
       'client_secret',
       'ighBy3EkUiXASdIn_DGUKFseNEzLPYMgP41zOL2e-AlrtBT8tK-Luysu8PTWqDi8'
     );
-    body.set('code', token);
+    body.set('code', code);
     body.set('redirect_uri', 'https://localhost:4200/dashboard');
 
     try {
@@ -123,19 +123,19 @@ export class AuthenticationService {
     return this.auth.isAuthenticated$;
   }
 
-  redirectToDashboard(): void {
-    const currentUrl = this.router.url;
-    if (currentUrl !== '/dashboard' && currentUrl !== '') {
-      this.router.navigate(['/dashboard']);
-    }
-  }
+  // redirectToDashboard(): void {
+  //   const currentUrl = this.router.url;
+  //   if (currentUrl !== '/dashboard' && currentUrl !== '') {
+  //     this.router.navigate(['/dashboard']);
+  //   }
+  // }
 
   handleRedirectCallback(): void {
     this.auth.handleRedirectCallback().subscribe(() => {
       this.auth.idTokenClaims$.subscribe((claims) => {
         console.log('Informazioni utente:', claims); // Stampa le informazioni dell'utente nella console per scopi di testing
       });
-      this.redirectToDashboard();
+      // this.redirectToDashboard();
     });
   }
 }

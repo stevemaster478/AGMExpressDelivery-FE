@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     this.auth.isAuthenticated().subscribe((isAuthenticated) => {
       if (!isAuthenticated) {
         // L'utente non è autenticato, reindirizzo alla pagina di accesso
-        this.auth.login();
+        // this.auth.login();
       }
     });
   }
