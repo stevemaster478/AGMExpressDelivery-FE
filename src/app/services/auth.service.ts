@@ -45,14 +45,19 @@ export class AuthenticationService {
   }
 
   login(): void {
-    this.auth.loginWithRedirect();
+    this.auth.loginWithRedirect({
+      authorizationParams: {
+        redirect_uri: 'http://localhost:4200/dashboard',
+      },
+    });
   }
 
   logout(): void {
-    this.auth.logout();
+    this.auth.logout({
+      logoutParams: { returnTo: 'http://localhost:4200/login'}
+    });
     this.setUserRole(null);
     localStorage.removeItem('access_token'); // Rimuovi il token di accesso da localStorage al momento del logout
-    this.auth.loginWithRedirect();
   }
 
   async setUserRoleFromToken(user: User | null | undefined): Promise<void> {
@@ -123,19 +128,19 @@ export class AuthenticationService {
     return this.auth.isAuthenticated$;
   }
 
-  // redirectToDashboard(): void {
-  //   const currentUrl = this.router.url;
-  //   if (currentUrl !== '/dashboard' && currentUrl !== '') {
-  //     this.router.navigate(['/dashboard']);
-  //   }
-  // }
+  redirectToDashboard(): void {
+    const currentUrl = this.router.url;
+    if (currentUrl !== '/dashboard' && currentUrl !== '') {
+      this.router.navigate(['/dashboard']);
+    }
+  }
 
   handleRedirectCallback(): void {
     this.auth.handleRedirectCallback().subscribe(() => {
       this.auth.idTokenClaims$.subscribe((claims) => {
         console.log('Informazioni utente:', claims); // Stampa le informazioni dell'utente nella console per scopi di testing
       });
-      // this.redirectToDashboard();
+      this.redirectToDashboard();
     });
   }
 }

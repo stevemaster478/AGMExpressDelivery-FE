@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-callback',
@@ -8,9 +9,10 @@ import { Router } from '@angular/router';
 export class CallbackComponent implements OnInit {
   constructor(
     private router: Router,
+    private auth: AuthenticationService
   ) { }
 
   ngOnInit(): void {
-    // this.router.navigate(['/dashboard']);
+    this.auth.redirectToDashboard();
   }
 }

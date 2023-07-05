@@ -15,6 +15,7 @@ import {
 import { navbarData } from './sidebar-data';
 import { AuthService } from '@auth0/auth0-angular';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/auth.service';
 
 interface SidebarToggle {
   screenWidth: number;
@@ -50,7 +51,7 @@ interface SidebarToggle {
   ],
 })
 export class SidebarComponent implements OnInit {
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthenticationService, private router: Router) {}
 
   @Output() onTogglesidebar: EventEmitter<SidebarToggle> = new EventEmitter();
   collapsed = false;
