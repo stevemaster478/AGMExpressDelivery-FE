@@ -17,12 +17,14 @@ import { PaccoComponent } from './components/pacco/pacco.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
-import { HomepageComponent } from './components/homepage/homepage.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
+import { TopWidgetsComponent } from './components/Homepage/top-widgets/top-widgets.component';
+import { ChartComponent } from './components/Homepage/chart/chart.component';
+import { MainpageComponent } from './components/Homepage/mainpage/mainpage.component';
 
 
 @NgModule({
@@ -37,8 +39,10 @@ import { RouterModule } from '@angular/router';
     PaccoComponent,
     LoginComponent,
     UserDashboardComponent,
-    HomepageComponent,
     SidebarComponent,
+    TopWidgetsComponent,
+    ChartComponent,
+    MainpageComponent,
   ],
   imports: [
     AuthModule.forRoot({

@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import { MainpageComponent } from './components/Homepage/mainpage/mainpage.component';
+import { UserDashboardComponent } from './components/dashboards/user-dashboard/user-dashboard.component';
+>>>>>>> origin/maurizio
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FurgoneComponent } from './components/furgone/furgone.component';
@@ -14,6 +19,7 @@ import { AuthenticationService } from './services/auth.service';
 import { AdminGuard } from './services/adminguard.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { MainpageComponent } from './components/Homepage/mainpage/mainpage.component';
 
 const routes: Routes = [
   { path: 'callback', component: CallbackComponent,},
@@ -52,6 +58,7 @@ const routes: Routes = [
     component: SidebarComponent,
   },
   { path: '', component: SidebarComponent}
+  { path: 'mainpage', component: MainpageComponent},
 ];
 
 @NgModule({

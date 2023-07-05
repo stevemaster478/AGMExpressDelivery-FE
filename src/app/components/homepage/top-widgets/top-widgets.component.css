@@ -1,0 +1,8 @@
+.widget-container {
+  display: flex;
+}
+
+.widget {
+  flex: 1;
+  margin: 0 10px; /* Optional margin between widgets */
+}
