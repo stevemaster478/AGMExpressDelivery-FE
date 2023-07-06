@@ -13,7 +13,6 @@ import {
   HostListener,
 } from '@angular/core';
 import { navbarAdmin, navbarCliente } from './sidebar-data';
-import { AuthService } from '@auth0/auth0-angular';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/auth.service';
 import { Ruolo } from 'src/app/models/ruolo.model';
