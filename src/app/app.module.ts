@@ -1,4 +1,4 @@
-import { AuthModule, HttpInterceptorConfig } from '@auth0/auth0-angular';
+import { AuthModule} from '@auth0/auth0-angular';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -22,9 +22,12 @@ import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
-import { TopWidgetsComponent } from './components/homepage/top-widgets/top-widgets.component';
-import { ChartComponent } from './components/homepage/chart/chart.component';
+import { TopWidgetsComponent } from './components/Homepage/top-widgets/top-widgets.component';
+import { ChartComponent } from './components/Homepage/chart/chart.component';
 import { MainpageComponent } from './components/homepage/mainpage/mainpage.component';
+import { NgChartsModule } from 'ng2-charts';
+
+
 
 
 @NgModule({
@@ -40,9 +43,9 @@ import { MainpageComponent } from './components/homepage/mainpage/mainpage.compo
     LoginComponent,
     UserDashboardComponent,
     SidebarComponent,
-    TopWidgetsComponent,
-    ChartComponent,
     MainpageComponent,
+    TopWidgetsComponent,
+    ChartComponent
   ],
   imports: [
     AuthModule.forRoot({
@@ -63,7 +66,8 @@ import { MainpageComponent } from './components/homepage/mainpage/mainpage.compo
     SidebarModule,
     RouterModule,
     MenubarModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgChartsModule,
 
   ],
   providers: [],
