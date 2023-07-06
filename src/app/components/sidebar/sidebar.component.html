@@ -1,14 +1,26 @@
 <div class="sidebar"
   [ngClass]="[collapsed ? 'sidebar-collapsed': '', darkTheme ? 'lara-indigo-dark' : 'lara-indigo-light']">
   <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">A</button>
-    <div class="logo-text" @fadeInOut *ngIf="collapsed">AGM Express</div>
+    <div class="logo-text" @fadeInOut *ngIf="collapsed; else notCollapsed">
+      <div class="logo-image" (click)="closesidebar()">
+        <img src="../../../assets/AGM_Express-logo-black-removebg-preview.png" width="100%" height="100%"
+          alt="AGM Express logo">
+      </div>
+    </div>
+    <ng-template #notCollapsed>
+      <div class="logo-image notCollapsed">
+        <button class="logo-content" (click)="toggleCollapse()">
+          A
+        </button>
+      </div>
+    </ng-template>
+
     <button class="btn-close" @rotate *ngIf="collapsed" (click)="closesidebar()">
       <i class="fal fa-times close-icon"></i>
     </button>
   </div>
   <ul class="sidebar-nav">
-  <li class="sidebar-nav-item" *ngFor="let data of navData">
+    <li class="sidebar-nav-item" *ngFor="let data of navData">
       <a class="sidebar-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}">
         <i class="sidebar-link-icon" [class]="data.icon"></i>
@@ -28,5 +40,4 @@
   <button class="logout-button" (click)="logout()">
     <i class="fal fa-sign-out"></i>
   </button>
-
 </div>

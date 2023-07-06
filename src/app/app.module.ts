@@ -22,9 +22,9 @@ import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
-import { TopWidgetsComponent } from './components/Homepage/top-widgets/top-widgets.component';
-import { ChartComponent } from './components/Homepage/chart/chart.component';
-import { MainpageComponent } from './components/Homepage/mainpage/mainpage.component';
+import { TopWidgetsComponent } from './components/homepage/top-widgets/top-widgets.component';
+import { ChartComponent } from './components/homepage/chart/chart.component';
+import { MainpageComponent } from './components/homepage/mainpage/mainpage.component';
 
 
 @NgModule({

@@ -12,10 +12,11 @@ import {
   OnInit,
   HostListener,
 } from '@angular/core';
-import { navbarData } from './sidebar-data';
+import { navbarAdmin, navbarCliente } from './sidebar-data';
 import { AuthService } from '@auth0/auth0-angular';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/auth.service';
+import { Ruolo } from 'src/app/models/ruolo.model';
 
 interface SidebarToggle {
   screenWidth: number;
@@ -51,12 +52,19 @@ interface SidebarToggle {
   ],
 })
 export class SidebarComponent implements OnInit {
+
+  ruoloLoggato: Ruolo = {
+    id: 1, // 1 : ADMIN | 2: USER
+    nome: 'pippo'
+  };
+
+
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   @Output() onTogglesidebar: EventEmitter<SidebarToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
-  navData = navbarData;
+  navData: any;
   darkTheme = true;
   sidebarThemeClass = '';
 
@@ -76,6 +84,12 @@ export class SidebarComponent implements OnInit {
     this.screenWidth = window.innerWidth;
     this.setThemeClass();
     this.collapsed = true;
+
+    if (this.ruoloLoggato.id == 1) {
+      this.navData = navbarAdmin;
+    } else if (this.ruoloLoggato.id == 2){
+      this.navData = navbarCliente;
+    }
   }
 
   toggleCollapse(): void {
