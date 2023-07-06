@@ -5,7 +5,7 @@ export const navbarAdmin = [
     label: 'Homepage',
   },
   {
-    routeLink: '/clienti',
+    routeLink: '/cliente',
     icon: 'fal fa-user',
     label: 'Clients',
   },
