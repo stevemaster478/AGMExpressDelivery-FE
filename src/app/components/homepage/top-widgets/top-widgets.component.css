@@ -1,10 +1,32 @@
 
 
 .widget-container {
+  padding-left: 15%;
+
+  padding-right: 5%;
+  padding-top: 2%;
   display: flex;
 }
 
 .widget {
+  background-color: #D9D9D9;
+
   flex: 1;
-  margin: 0 10px; /* Optional margin between widgets */
+   /* Optional margin between widgets */
+
+  padding: 10px;
+  margin-left: 5%;
+}
+
+#leftbox {
+
+  height:250px;
+}
+#middlebox{
+
+  height:250px;
+}
+#rightbox{
+
+  height:250px;
 }

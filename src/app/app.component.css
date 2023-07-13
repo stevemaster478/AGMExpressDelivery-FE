@@ -8,8 +8,26 @@
 
 .content-container{
 
-  padding-left: 25%;
+  padding-left: 15%;
 
-  padding-right: 0%;
+  padding-right: 5%;
   padding-top: 2%;
+}
+#sticky-footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+  background:#999;
+}
+
+
+.maurizio{
+  position: relative;
+  bottom: 10px;
+}
+
+i {
+  margin-left: 10px;
 }
