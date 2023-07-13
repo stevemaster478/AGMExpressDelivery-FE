@@ -2,5 +2,9 @@
   display: block;
   width: 1000px;
   height: 400px;
-  
+
+  margin: auto;
+  padding: 10px;
+  padding-left: 15%;
+
 }
