@@ -7,9 +7,13 @@ import { AuthenticationService } from './services/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private auth: AuthenticationService,
-  ) {}
+  collapsed = false;
+
+  onCollapsedChange(collapsed: boolean): void {
+    this.collapsed = collapsed;
+  }
+
+  constructor(private auth: AuthenticationService) {}
 
   ngOnInit(): void {
     // Controllo se l'utente è autenticato

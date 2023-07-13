@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../models/cliente.model';
 import { ClienteService } from '../../services/cliente.service';
-import { faCoffee, IconDefinition, IconLookup } from '@fortawesome/free-solid-svg-icons';
-
+import {
+  faCoffee,
+  IconDefinition,
+  IconLookup,
+} from '@fortawesome/free-solid-svg-icons';
+import { RuoloService } from 'src/app/services/ruolo.service';
 
 @Component({
   selector: 'app-cliente',
@@ -10,23 +14,21 @@ import { faCoffee, IconDefinition, IconLookup } from '@fortawesome/free-solid-sv
   styleUrls: ['./cliente.component.css'],
 })
 export class ClienteComponent implements OnInit {
-
-
-
   selectClient() {
     throw new Error('Method not implemented.');
   }
 
-
   faCoffee: IconLookup = faCoffee;
-
 
   clienti: Cliente[] = [];
   clienteSelezionato?: Cliente;
   clienteModifica: Cliente | null;
   modalitaModifica = false;
 
-  constructor(private clienteService: ClienteService) {
+  constructor(
+    private clienteService: ClienteService,
+    private ruoloService: RuoloService
+  ) {
     this.clienteModifica = {
       id: 0,
       nome: '',
@@ -35,6 +37,7 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+      ruolo: { id: 0, nome: '' },
     };
     this.clienteSelezionato = {
       id: 0,
@@ -44,6 +47,7 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+      ruolo: { id: 0, nome: '' },
     };
 
     this.nuovoCliente = {
@@ -54,6 +58,7 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+      ruolo: { id: 0, nome: '' },
     };
   }
 
@@ -85,6 +90,13 @@ export class ClienteComponent implements OnInit {
 
   caricaClienti(): void {
     this.clienteService.getClienti().subscribe((clienti) => {
+      for (const cliente of clienti) {
+        this.clienteService
+          .getRuoloByClienteId(cliente.id)
+          .subscribe((ruolo) => {
+            cliente.ruolo.nome = ruolo.nome;
+          });
+      }
       this.clienti = clienti;
     });
   }
@@ -102,6 +114,7 @@ export class ClienteComponent implements OnInit {
     numeroTelefono: '',
     pacchiInviati: [],
     pacchiRicevuti: [],
+    ruolo: { id: 0, nome: '' },
   };
 
   creaCliente(): void {
@@ -122,10 +135,7 @@ export class ClienteComponent implements OnInit {
     }
   }
 
-
-  perform(){
-    console.log("chiaoooo")
+  perform() {
+    console.log('ciaoooo');
   }
-
-
 }

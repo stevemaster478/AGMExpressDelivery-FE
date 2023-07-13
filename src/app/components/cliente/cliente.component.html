@@ -97,9 +97,12 @@
     <br>
     <tbody>
       <tr *ngFor="let cliente of clienti">
+        <td>{{ cliente.id }}</td>
         <td>{{ cliente.nome }}</td>
         <td>{{ cliente.cognome }}</td>
+        <td>{{ cliente.numeroTelefono }}</td>
         <td>{{ cliente.partitaIva }}</td>
+        <td>{{ cliente.ruolo.nome }}</td>
         <td>
           <button class="editButtons" (click)="selectClient()" (click) ="clienteSelezionato=cliente" data-bs-toggle="modal" data-bs-target="#modifyModal"><i class="bi bi-pencil-fill"></i>
           </button>

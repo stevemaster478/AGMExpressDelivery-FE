@@ -1,4 +1,5 @@
-import { Pacco } from './pacco.model'
+import { Pacco } from './pacco.model';
+import { Ruolo } from './ruolo.model';
 
 export interface Cliente {
   id: number;
@@ -8,4 +9,6 @@ export interface Cliente {
   numeroTelefono: string;
   pacchiInviati: Pacco[];
   pacchiRicevuti: Pacco[];
+  ruolo: Ruolo;
 }
+

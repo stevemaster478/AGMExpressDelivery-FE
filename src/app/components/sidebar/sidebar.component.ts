@@ -51,16 +51,15 @@ interface SidebarToggle {
   ],
 })
 export class SidebarComponent implements OnInit {
-
   ruoloLoggato: Ruolo = {
     id: 1, // 1 : ADMIN | 2: USER
-    nome: 'pippo'
+    nome: 'pippo',
   };
-
 
   constructor(private auth: AuthenticationService, private router: Router) {}
 
-  @Output() onTogglesidebar: EventEmitter<SidebarToggle> = new EventEmitter();
+  @Output() collapsedChange: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
   collapsed = false;
   screenWidth = 0;
   navData: any;
@@ -72,10 +71,7 @@ export class SidebarComponent implements OnInit {
     this.screenWidth = window.innerWidth;
     if (this.screenWidth <= 768) {
       this.collapsed = false;
-      this.onTogglesidebar.emit({
-        collapsed: this.collapsed,
-        screenWidth: this.screenWidth,
-      });
+      this.collapsedChange.emit(this.collapsed);
     }
   }
 
@@ -86,17 +82,14 @@ export class SidebarComponent implements OnInit {
 
     if (this.ruoloLoggato.id == 1) {
       this.navData = navbarAdmin;
-    } else if (this.ruoloLoggato.id == 2){
+    } else if (this.ruoloLoggato.id == 2) {
       this.navData = navbarCliente;
     }
   }
 
   toggleCollapse(): void {
-    this.collapsed = true;
-    this.onTogglesidebar.emit({
-      collapsed: this.collapsed,
-      screenWidth: this.screenWidth,
-    });
+    this.collapsed = !this.collapsed;
+    this.collapsedChange.emit(this.collapsed);
   }
 
   logout(): void {
@@ -111,10 +104,7 @@ export class SidebarComponent implements OnInit {
 
   closesidebar(): void {
     this.collapsed = false;
-    this.onTogglesidebar.emit({
-      collapsed: this.collapsed,
-      screenWidth: this.screenWidth,
-    });
+    this.collapsedChange.emit(this.collapsed);
   }
 
   private setThemeClass(): void {

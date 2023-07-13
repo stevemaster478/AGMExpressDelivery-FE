@@ -1,15 +1,10 @@
-.sidebar-container {
-  position: fixed;
-  left: 0;
-  min-height: 100vh;
-  background-color: #333;
-  padding: 0;
+.app-container {
+  display: flex;
 }
-
-.content-container{
-
-  padding-left: 25%;
-
-  padding-right: 0%;
-  padding-top: 2%;
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+.content-container {
+  width: 100%;
 }

@@ -1,22 +1,13 @@
-<!-- <div class="app-container">
-  <div class="row">
-       Sidebar
-      <div class="col-lg-2 col-md-3 col-sm-12">
-          <app-sidebar style="position: fixed; z-index: 1;"></app-sidebar>
-      </div>
-
-      Main Content
-      <div class="col-lg-10 col-md-9 col-sm-12 maurizio ml-auto " style="margin-left: 16.666667%;">
-          <router-outlet></router-outlet>
-      </div>
+<div class="app-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <app-sidebar (collapsedChange)="onCollapsedChange($event)"></app-sidebar>
   </div>
-</div> -->
 
-<div class="sidebar-container">
-  <app-sidebar></app-sidebar>
-</div>
-
-
-<div class="content-container">
-  <router-outlet></router-outlet>
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
