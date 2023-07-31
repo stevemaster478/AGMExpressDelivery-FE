@@ -1,11 +1,12 @@
 
 
 .widget-container {
-  padding-left: 15%;
-
-  padding-right: 5%;
-  padding-top: 2%;
+  justify-content: right;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
+  position: relative;
 }
 
 .widget {

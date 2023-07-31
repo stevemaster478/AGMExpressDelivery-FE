@@ -1,32 +1,17 @@
-<!-- <div class="app-container">
-  <div class="row">
-       Sidebar
-      <div class="col-lg-2 col-md-3 col-sm-12">
-          <app-sidebar style="position: fixed; z-index: 1;"></app-sidebar>
-      </div>
-
-      Main Content
-      <div class="col-lg-10 col-md-9 col-sm-12 maurizio ml-auto " style="margin-left: 16.666667%;">
-          <router-outlet></router-outlet>
-      </div>
+<div class="main-container">
+  <div class="sidebar-container">
+    <app-sidebar></app-sidebar>
   </div>
-</div> -->
 
-<div>
-
-
-<div class="sidebar-container">
-  <app-sidebar></app-sidebar>
-</div>
-
-<div class="content-container">
-  <router-outlet></router-outlet>
-</div>
-
-<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
-  <div class="container text-center maurizio">
-    <small>Contact us: +39 1234567891</small><i class="bi bi-instagram"></i><i class="bi bi-linkedin"></i>
-    <i class="bi bi-reddit"></i>
+  <div class="content-container">
+    <router-outlet></router-outlet>
   </div>
-</footer>
+
+  <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+    <div class="container text-center maurizio">
+      <small>Contact us: +39 1234567891</small><i class="bi bi-instagram"></i
+      ><i class="bi bi-linkedin"></i>
+      <i class="bi bi-reddit"></i>
+    </div>
+  </footer>
 </div>

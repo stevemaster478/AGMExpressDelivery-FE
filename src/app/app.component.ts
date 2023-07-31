@@ -1,3 +1,4 @@
+import { RouterOutletResizingService } from './services/router-outlet-resizing.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './services/auth.service';
 
@@ -7,9 +8,15 @@ import { AuthenticationService } from './services/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private auth: AuthenticationService,
-  ) {}
+
+  collapsed: Boolean = this.resizingService.collapsed;
+
+
+  constructor( private auth: AuthenticationService, private resizingService: RouterOutletResizingService) {}
+
+
+
+
 
   ngOnInit(): void {
     // Controllo se l'utente è autenticato
@@ -19,5 +26,9 @@ export class AppComponent implements OnInit {
         // this.auth.login();
       }
     });
+
+
   }
+
+
 }
