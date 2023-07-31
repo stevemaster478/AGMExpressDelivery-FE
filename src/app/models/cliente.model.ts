@@ -9,6 +9,10 @@ export interface Cliente {
   numeroTelefono: string;
   pacchiInviati: Pacco[];
   pacchiRicevuti: Pacco[];
+<<<<<<< HEAD
   ruolo: Ruolo;
+=======
+  ruolo: string;
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
 }
 

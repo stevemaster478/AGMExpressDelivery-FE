@@ -31,7 +31,11 @@ export class IndirizzoComponent {
         numeroTelefono: '',
         pacchiInviati: [],
         pacchiRicevuti: [],
+<<<<<<< HEAD
         ruolo: { id: 0, nome: '' }
+=======
+        ruolo: '',
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
       },
     };
     this.indirizzoModifica = {
@@ -49,7 +53,11 @@ export class IndirizzoComponent {
         numeroTelefono: '',
         pacchiInviati: [],
         pacchiRicevuti: [],
+<<<<<<< HEAD
         ruolo: { id: 0, nome: '' }
+=======
+        ruolo: '',
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
       },
     };
   }
@@ -91,7 +99,11 @@ export class IndirizzoComponent {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+<<<<<<< HEAD
       ruolo: { id: 0, nome: '' }
+=======
+      ruolo: ''
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
     },
   }
 

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cliente } from '../models/cliente.model';
 import { environments } from './../../environments/environments';
-import { Ruolo } from '../models/ruolo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -34,10 +33,5 @@ export class ClienteService {
   deleteCliente(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url);
-  }
-
-  getRuoloByClienteId(id: number): Observable<Ruolo> {
-    const url = `${this.apiUrl}/${id}/ruolo`;
-    return this.http.get<Ruolo>(url);
   }
 }

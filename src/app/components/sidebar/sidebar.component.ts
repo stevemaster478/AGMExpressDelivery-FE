@@ -1,3 +1,4 @@
+import { RouterOutletResizingService } from './../../services/router-outlet-resizing.service';
 import {
   animate,
   keyframes,
@@ -15,8 +16,9 @@ import {
 import { navbarAdmin, navbarCliente } from './sidebar-data';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/auth.service';
-import { Ruolo } from 'src/app/models/ruolo.model';
-
+import {
+  Cliente
+} from 'src/app/models/cliente.model';
 interface SidebarToggle {
   screenWidth: number;
   collapsed: boolean;
@@ -51,12 +53,31 @@ interface SidebarToggle {
   ],
 })
 export class SidebarComponent implements OnInit {
+<<<<<<< HEAD
   ruoloLoggato: Ruolo = {
     id: 1, // 1 : ADMIN | 2: USER
     nome: 'pippo',
   };
 
+=======
+  ruoloLoggato: Cliente = {
+    id: 1,
+    nome: 'pippo',
+    partitaIva: 1234567890,
+    cognome: 'rossi',
+    numeroTelefono: '1234567890',
+    pacchiInviati: [],
+    pacchiRicevuti: [],
+    ruolo: 'admin',
+  };
+
+<<<<<<< HEAD
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
   constructor(private auth: AuthenticationService, private router: Router) {}
+=======
+
+  constructor(private auth: AuthenticationService, private router: Router, private resizingService: RouterOutletResizingService) {}
+>>>>>>> 09d254702189a64e75d8c7b72bdbfdf71e649e33
 
   @Output() collapsedChange: EventEmitter<boolean> =
     new EventEmitter<boolean>();
@@ -71,7 +92,16 @@ export class SidebarComponent implements OnInit {
     this.screenWidth = window.innerWidth;
     if (this.screenWidth <= 768) {
       this.collapsed = false;
+<<<<<<< HEAD
       this.collapsedChange.emit(this.collapsed);
+=======
+      this.onTogglesidebar.emit({
+        collapsed: this.collapsed,
+        screenWidth: this.screenWidth,
+      });
+      this.resizingService.collapsed = this.collapsed;
+
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
     }
   }
 
@@ -80,20 +110,42 @@ export class SidebarComponent implements OnInit {
     this.setThemeClass();
     this.collapsed = true;
 
+<<<<<<< HEAD
+    if (this.ruoloLoggato.ruolo == 'admin') {
+=======
+    this.resizingService.collapsed = this.collapsed;
+
     if (this.ruoloLoggato.id == 1) {
+>>>>>>> 09d254702189a64e75d8c7b72bdbfdf71e649e33
       this.navData = navbarAdmin;
+<<<<<<< HEAD
     } else if (this.ruoloLoggato.id == 2) {
+=======
+    } else if (this.ruoloLoggato.ruolo== 'user') {
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
       this.navData = navbarCliente;
     }
   }
 
   toggleCollapse(): void {
+<<<<<<< HEAD
     this.collapsed = !this.collapsed;
     this.collapsedChange.emit(this.collapsed);
+=======
+    this.collapsed = true;
+    this.onTogglesidebar.emit({
+      collapsed: this.collapsed,
+      screenWidth: this.screenWidth,
+    });
+    this.resizingService.collapsed = this.collapsed;
+
+
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
   }
 
   logout(): void {
     this.collapsed = false;
+    this.resizingService.collapsed = this.collapsed;
     this.auth.logout();
   }
 
@@ -104,7 +156,16 @@ export class SidebarComponent implements OnInit {
 
   closesidebar(): void {
     this.collapsed = false;
+<<<<<<< HEAD
     this.collapsedChange.emit(this.collapsed);
+=======
+    this.onTogglesidebar.emit({
+      collapsed: this.collapsed,
+      screenWidth: this.screenWidth,
+    });
+    this.resizingService.collapsed = this.collapsed;
+
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
   }
 
   private setThemeClass(): void {

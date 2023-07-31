@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../models/cliente.model';
 import { ClienteService } from '../../services/cliente.service';
+<<<<<<< HEAD
 import {
   faCoffee,
   IconDefinition,
   IconLookup,
 } from '@fortawesome/free-solid-svg-icons';
 import { RuoloService } from 'src/app/services/ruolo.service';
+=======
+import { faCoffee, IconDefinition, IconLookup } from '@fortawesome/free-solid-svg-icons';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
 
 @Component({
   selector: 'app-cliente',
@@ -14,20 +20,38 @@ import { RuoloService } from 'src/app/services/ruolo.service';
   styleUrls: ['./cliente.component.css'],
 })
 export class ClienteComponent implements OnInit {
+<<<<<<< HEAD
   selectClient() {
     throw new Error('Method not implemented.');
+=======
+  selectClient(cliente: Cliente) {
+    this.clienteSelezionato = cliente;
+    this.clienteModifica = { ...cliente }; // Imposta il cliente selezionato nel form di modifica
+
+    // Apri il modal di modifica utilizzando JavaScript vanilla
+    const editModal = document.getElementById('editModal');
+    if (editModal) {
+      editModal.classList.add('show'); // Mostra il modal
+      editModal.style.display = 'block'; // Mostra il modal
+      document.body.classList.add('modal-open'); // Aggiungi la classe per disabilitare lo sfondo
+    }
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
   }
 
   faCoffee: IconLookup = faCoffee;
 
   clienti: Cliente[] = [];
   clienteSelezionato?: Cliente;
-  clienteModifica: Cliente | null;
+  clienteModifica: Cliente | null = null;
   modalitaModifica = false;
 
   constructor(
     private clienteService: ClienteService,
+<<<<<<< HEAD
     private ruoloService: RuoloService
+=======
+    private modalService: NgbModal
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
   ) {
     this.clienteModifica = {
       id: 0,
@@ -37,7 +61,11 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+<<<<<<< HEAD
       ruolo: { id: 0, nome: '' },
+=======
+      ruolo: '',
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
     };
     this.clienteSelezionato = {
       id: 0,
@@ -47,7 +75,11 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+<<<<<<< HEAD
       ruolo: { id: 0, nome: '' },
+=======
+      ruolo: '',
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
     };
 
     this.nuovoCliente = {
@@ -58,7 +90,11 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+<<<<<<< HEAD
       ruolo: { id: 0, nome: '' },
+=======
+      ruolo: '',
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
     };
   }
 
@@ -88,6 +124,10 @@ export class ClienteComponent implements OnInit {
     }
   }
 
+  closeEditModal() {
+  this.modalService.dismissAll();
+  }
+  
   caricaClienti(): void {
     this.clienteService.getClienti().subscribe((clienti) => {
       for (const cliente of clienti) {
@@ -114,7 +154,11 @@ export class ClienteComponent implements OnInit {
     numeroTelefono: '',
     pacchiInviati: [],
     pacchiRicevuti: [],
+<<<<<<< HEAD
     ruolo: { id: 0, nome: '' },
+=======
+    ruolo: '',
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
   };
 
   creaCliente(): void {
@@ -126,16 +170,18 @@ export class ClienteComponent implements OnInit {
       });
   }
 
-  eliminaCliente(id: number): void {
-    if (confirm('Sei sicuro di voler eliminare il cliente?')) {
-      this.clienteService.deleteCliente(id).subscribe(() => {
-        this.caricaClienti();
-        this.clienteSelezionato = undefined;
-      });
-    }
+  deleteClient(cliente: Cliente) {
+    this.clienteService.deleteCliente(cliente.id).subscribe(() => {
+      this.caricaClienti();
+      this.clienteSelezionato = undefined;
+    });
   }
 
   perform() {
+<<<<<<< HEAD
     console.log('ciaoooo');
+=======
+    console.log('chiaoooo');
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
   }
 }

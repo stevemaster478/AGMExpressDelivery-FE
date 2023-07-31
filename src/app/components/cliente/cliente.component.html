@@ -1,84 +1,3 @@
-<!-- <h1>Lista Clienti</h1>
-
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Partita IVA</th>
-    <th>Cognome</th>
-    <th>Numero Telefono</th>
-    <th>Azioni</th>
-  </tr>
-  <tr *ngFor="let cliente of clienti">
-    <td>{{ cliente.nome }}</td>
-    <td>{{ cliente.partitaIva }}</td>
-    <td>{{ cliente.cognome }}</td>
-    <td>{{ cliente.numeroTelefono }}</td>
-    <td>
-      <button (click)="visualizzaDettagli(cliente.id)">Dettagli</button>
-      <button (click)="attivaModifica(cliente)">Modifica</button>
-      <button (click)="eliminaCliente(cliente.id)">Elimina</button>
-    </td>
-  </tr>
-</table>
-
-<h2>Aggiungi Cliente</h2>
-
-<form (submit)="creaCliente()">
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" name="nome" [(ngModel)]="nuovoCliente.nome" required>
-
-  <label for="partitaIva">Partita IVA:</label>
-  <input type="text" id="partitaIva" name="partitaIva" [(ngModel)]="nuovoCliente.partitaIva" required>
-
-  <label for="cognome">Cognome:</label>
-  <input type="text" id="cognome" name="cognome" [(ngModel)]="nuovoCliente.cognome" required>
-
-  <label for="numeroTelefono">Numero Telefono:</label>
-  <input type="text" id="numeroTelefono" name="numeroTelefono" [(ngModel)]="nuovoCliente.numeroTelefono" required>
-
-  <button type="submit">Crea Cliente</button>
-</form>
-
-<div *ngIf="clienteSelezionato">
-  <h2>Dettagli Cliente</h2>
-  <p>Nome: {{ clienteSelezionato.nome }}</p>
-  <p>Partita IVA: {{ clienteSelezionato.partitaIva }}</p>
-  <p>Cognome: {{ clienteSelezionato.cognome }}</p>
-  <p>Numero Telefono: {{ clienteSelezionato.numeroTelefono }}</p>
-  <h3>Pacchi Inviati:</h3>
-  <ul>
-    <li *ngFor="let pacco of clienteSelezionato?.pacchiInviati">
-      {{ pacco.id }} - {{ pacco.tipo }}
-    </li>
-  </ul>
-  <h3>Pacchi Ricevuti:</h3>
-  <ul>
-    <li *ngFor="let pacco of clienteSelezionato?.pacchiRicevuti">
-      {{ pacco.id }} - {{ pacco.tipo }}
-    </li>
-  </ul>
-</div>
-
-<div *ngIf="modalitaModifica">
-  <h2>Modifica Cliente</h2>
-  <form (submit)="salvaModifiche()" *ngIf="clienteModifica">
-    <label for="nomeModifica">Nome:</label>
-    <input type="text" id="nomeModifica" name="nomeModifica" [(ngModel)]="clienteModifica.nome" required>
-
-    <label for="partitaIvaModifica">Partita IVA:</label>
-    <input type="text" id="partitaIvaModifica" name="partitaIvaModifica" [(ngModel)]="clienteModifica.partitaIva" required>
-
-    <label for="cognomeModifica">Cognome:</label>
-    <input type="text" id="cognomeModifica" name="cognomeModifica" [(ngModel)]="clienteModifica.cognome" required>
-
-    <label for="numeroTelefonoModifica">Numero Telefono:</label>
-    <input type="text" id="numeroTelefonoModifica" name="numeroTelefonoModifica" [(ngModel)]="clienteModifica.numeroTelefono" required>
-
-    <button type="submit">Salva Modifiche</button>
-  </form>
-</div>
-
- -->
  <br>
  <br>
 
@@ -98,39 +17,61 @@
     <tbody>
       <tr *ngFor="let cliente of clienti">
         <td>{{ cliente.id }}</td>
+<<<<<<< HEAD
         <td>{{ cliente.nome }}</td>
         <td>{{ cliente.cognome }}</td>
         <td>{{ cliente.numeroTelefono }}</td>
         <td>{{ cliente.partitaIva }}</td>
         <td>{{ cliente.ruolo.nome }}</td>
+=======
+        <td>{{ cliente.cognome }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.numeroTelefono }}</td>
+        <td>{{ cliente.partitaIva }}</td>
+        <td>{{ cliente.ruolo }}</td>
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
         <td>
-          <button class="editButtons" (click)="selectClient()" (click) ="clienteSelezionato=cliente" data-bs-toggle="modal" data-bs-target="#modifyModal"><i class="bi bi-pencil-fill"></i>
+          <button class="editButtons" (click)="selectClient(cliente)" (click) ="clienteSelezionato=cliente" data-bs-toggle="modal" data-bs-target="#modifyModal"><i class="bi bi-pencil-fill"></i>
           </button>
-          <!-- modal for modify -->
-          <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <!-- Modal per la modifica dell'utente -->
+          <!-- Modal per la modifica dell'utente -->
+          <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel"></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+                  <h5 class="modal-title" id="editModalLabel">Modifica Cliente</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
                 </div>
-                <div class="modal-body modalbodyText"></div>
+                <div class="modal-body">
+                  <form (submit)="salvaModifiche()" *ngIf="clienteModifica !== null">
+                    <label for="nomeModifica">Nome </label> <br>
+                    <input type="text" id="nomeModifica" name="nomeModifica" [(ngModel)]="clienteModifica.nome" required> <br>
+
+                    <label for="partitaIvaModifica">Partita IVA</label> <br>
+                    <input type="text" id="partitaIvaModifica" name="partitaIvaModifica" [(ngModel)]="clienteModifica.partitaIva"
+                      required> <br>
+
+                    <label for="cognomeModifica">Cognome </label> <br>
+                    <input type="text" id="cognomeModifica" name="cognomeModifica" [(ngModel)]="clienteModifica.cognome" required> <br>
+
+                    <label for="numeroTelefonoModifica">Numero telefono </label> <br>
+                    <input type="text" id="numeroTelefonoModifica" name="numeroTelefonoModifica"
+                      [(ngModel)]="clienteModifica.numeroTelefono" required> <br>
+
+                    <br> <button type="submit">Salva Modifiche</button>
+                  </form>
+                </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <div class="quantity">
-                    <button class="btn btn-dark"><strong>-</strong></button>
-                    <input class="inputbox" text="text">
-                    <button class="btn btn-dark"><strong>+</strong></button>
-                  </div>
-                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Add to Cart</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
                 </div>
-              </div>
-            </div>
-          </div>
+                </div>
+                </div>
+                </div>
 
 
 
-          <button class="editButtons" (click)="selectClient()" (click) ="clienteSelezionato=cliente" data-bs-toggle="modal" data-bs-target="#deleteModal" ><i class="bi bi-trash-fill"></i>
+
+          <button class="editButtons" (click)="deleteClient(cliente)" (click) ="clienteSelezionato=cliente" data-bs-toggle="modal" data-bs-target="#deleteModal" ><i class="bi bi-trash-fill"></i>
           </button>
           <!-- delete client modal-->
 
@@ -139,11 +80,11 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel"></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeEditModal()" aria-label="Cancel"></button>
                 </div>
                 <div class="modal-body modalbodyText"></div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
                   <div class="quantity">
                     <button class="btn btn-dark"><strong>-</strong></button>
                     <input class="inputbox" text="text">

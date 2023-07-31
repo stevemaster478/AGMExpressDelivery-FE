@@ -1,19 +1,23 @@
 <div class="widget-container">
-  <div class="widget">
-    <h3>Widget 2</h3>
-
+  <div class="widget" id="leftbox">
+    <h3>Widget 1</h3>
     <!-- Widget 1 content -->
   </div>
 
-  <div class="widget">
+  <div class="widget" id="middlebox">
     <!-- Widget 2 content -->
-    <h3>Widget 2</h3>
+    <canvas baseChart class="chart"
+      [data]="pieChartData"
+      [type]="pieChartType"
+      [options]="pieChartOptions">
+    </canvas>
     <!-- Add your content here -->
   </div>
 
-  <div class="widget">
+  <div class="widget" id="rightbox">
     <!-- Widget 3 content -->
     <h3>Widget 3</h3>
     <!-- Add your content here -->
   </div>
 </div>
+

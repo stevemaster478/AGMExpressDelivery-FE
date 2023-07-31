@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .app-container {
   display: flex;
 }
@@ -7,4 +8,39 @@
 }
 .content-container {
   width: 100%;
+=======
+
+.main-container{
+  display:flex;
+}
+
+.sidebar-container {
+  /*position: fixed;*/
+  left: 0;
+  min-height: 100vh;
+  background-color: #333;
+  padding: 0;
+}
+
+.content-container{
+
+  padding-left: 5%;
+
+  padding-right: 5%;
+  padding-top: 2%;
+>>>>>>> ac3211d120c7e14ebcdf82bad8b7f9ff4f7ac9f1
+}
+#sticky-footer {
+  position:absolute;
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+  background:#999;
+}
+
+
+
+i {
+  margin-left: 10px;
 }
