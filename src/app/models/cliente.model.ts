@@ -8,4 +8,5 @@ export interface Cliente {
   numeroTelefono: string;
   pacchiInviati: Pacco[];
   pacchiRicevuti: Pacco[];
+  ruolo: string;
 }

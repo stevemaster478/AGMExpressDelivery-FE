@@ -15,8 +15,9 @@ import {
 import { navbarAdmin, navbarCliente } from './sidebar-data';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/auth.service';
-import { Ruolo } from 'src/app/models/ruolo.model';
-
+import {
+  Cliente
+} from 'src/app/models/cliente.model';
 interface SidebarToggle {
   screenWidth: number;
   collapsed: boolean;
@@ -51,12 +52,16 @@ interface SidebarToggle {
   ],
 })
 export class SidebarComponent implements OnInit {
-
-  ruoloLoggato: Ruolo = {
-    id: 1, // 1 : ADMIN | 2: USER
-    nome: 'pippo'
+  ruoloLoggato: Cliente = {
+    id: 1,
+    nome: 'pippo',
+    partitaIva: 1234567890,
+    cognome: 'rossi',
+    numeroTelefono: '1234567890',
+    pacchiInviati: [],
+    pacchiRicevuti: [],
+    ruolo: 'admin',
   };
-
 
   constructor(private auth: AuthenticationService, private router: Router) {}
 
@@ -84,9 +89,9 @@ export class SidebarComponent implements OnInit {
     this.setThemeClass();
     this.collapsed = true;
 
-    if (this.ruoloLoggato.id == 1) {
+    if (this.ruoloLoggato.ruolo == 'admin') {
       this.navData = navbarAdmin;
-    } else if (this.ruoloLoggato.id == 2){
+    } else if (this.ruoloLoggato.ruolo== 'user') {
       this.navData = navbarCliente;
     }
   }

@@ -31,6 +31,7 @@ export class IndirizzoComponent {
         numeroTelefono: '',
         pacchiInviati: [],
         pacchiRicevuti: [],
+        ruolo: '',
       },
     };
     this.indirizzoModifica = {
@@ -48,6 +49,7 @@ export class IndirizzoComponent {
         numeroTelefono: '',
         pacchiInviati: [],
         pacchiRicevuti: [],
+        ruolo: '',
       },
     };
   }
@@ -89,6 +91,7 @@ export class IndirizzoComponent {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+      ruolo: ''
     },
   }
 

@@ -11,7 +11,6 @@ import { FurgoneComponent } from './components/furgone/furgone.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { ConsegnaComponent } from './components/consegna/consegna.component';
 import { StatoConsegnaComponent } from './components/statoconsegna/statoconsegna.component';
-import { RuoloComponent } from './components/ruolo/ruolo.component';
 import { IndirizzoComponent } from './components/indirizzo/indirizzo.component';
 import { PaccoComponent } from './components/pacco/pacco.component';
 import { CommonModule } from '@angular/common';
@@ -22,10 +21,11 @@ import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
-import { TopWidgetsComponent } from './components/Homepage/top-widgets/top-widgets.component';
-import { ChartComponent } from './components/Homepage/chart/chart.component';
+import { TopWidgetsComponent } from './components/homepage/top-widgets/top-widgets.component';
+import { ChartComponent } from './components/homepage/chart/chart.component';
 import { MainpageComponent } from './components/homepage/mainpage/mainpage.component';
 import { NgChartsModule } from 'ng2-charts';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -37,7 +37,6 @@ import { NgChartsModule } from 'ng2-charts';
     ClienteComponent,
     ConsegnaComponent,
     StatoConsegnaComponent,
-    RuoloComponent,
     IndirizzoComponent,
     PaccoComponent,
     LoginComponent,
@@ -45,7 +44,7 @@ import { NgChartsModule } from 'ng2-charts';
     SidebarComponent,
     MainpageComponent,
     TopWidgetsComponent,
-    ChartComponent
+    ChartComponent,
   ],
   imports: [
     AuthModule.forRoot({
@@ -68,6 +67,7 @@ import { NgChartsModule } from 'ng2-charts';
     MenubarModule,
     FontAwesomeModule,
     NgChartsModule,
+    NgbModule,
 
   ],
   providers: [],

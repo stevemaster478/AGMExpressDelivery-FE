@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../models/cliente.model';
 import { ClienteService } from '../../services/cliente.service';
 import { faCoffee, IconDefinition, IconLookup } from '@fortawesome/free-solid-svg-icons';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -10,23 +11,30 @@ import { faCoffee, IconDefinition, IconLookup } from '@fortawesome/free-solid-sv
   styleUrls: ['./cliente.component.css'],
 })
 export class ClienteComponent implements OnInit {
+  selectClient(cliente: Cliente) {
+    this.clienteSelezionato = cliente;
+    this.clienteModifica = { ...cliente }; // Imposta il cliente selezionato nel form di modifica
 
-
-
-  selectClient() {
-    throw new Error('Method not implemented.');
+    // Apri il modal di modifica utilizzando JavaScript vanilla
+    const editModal = document.getElementById('editModal');
+    if (editModal) {
+      editModal.classList.add('show'); // Mostra il modal
+      editModal.style.display = 'block'; // Mostra il modal
+      document.body.classList.add('modal-open'); // Aggiungi la classe per disabilitare lo sfondo
+    }
   }
-
 
   faCoffee: IconLookup = faCoffee;
 
-
   clienti: Cliente[] = [];
   clienteSelezionato?: Cliente;
-  clienteModifica: Cliente | null;
+  clienteModifica: Cliente | null = null;
   modalitaModifica = false;
 
-  constructor(private clienteService: ClienteService) {
+  constructor(
+    private clienteService: ClienteService,
+    private modalService: NgbModal
+  ) {
     this.clienteModifica = {
       id: 0,
       nome: '',
@@ -35,6 +43,7 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+      ruolo: '',
     };
     this.clienteSelezionato = {
       id: 0,
@@ -44,6 +53,7 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+      ruolo: '',
     };
 
     this.nuovoCliente = {
@@ -54,6 +64,7 @@ export class ClienteComponent implements OnInit {
       numeroTelefono: '',
       pacchiInviati: [],
       pacchiRicevuti: [],
+      ruolo: '',
     };
   }
 
@@ -83,6 +94,10 @@ export class ClienteComponent implements OnInit {
     }
   }
 
+  closeEditModal() {
+  this.modalService.dismissAll();
+  }
+  
   caricaClienti(): void {
     this.clienteService.getClienti().subscribe((clienti) => {
       this.clienti = clienti;
@@ -102,6 +117,7 @@ export class ClienteComponent implements OnInit {
     numeroTelefono: '',
     pacchiInviati: [],
     pacchiRicevuti: [],
+    ruolo: '',
   };
 
   creaCliente(): void {
@@ -113,19 +129,14 @@ export class ClienteComponent implements OnInit {
       });
   }
 
-  eliminaCliente(id: number): void {
-    if (confirm('Sei sicuro di voler eliminare il cliente?')) {
-      this.clienteService.deleteCliente(id).subscribe(() => {
-        this.caricaClienti();
-        this.clienteSelezionato = undefined;
-      });
-    }
+  deleteClient(cliente: Cliente) {
+    this.clienteService.deleteCliente(cliente.id).subscribe(() => {
+      this.caricaClienti();
+      this.clienteSelezionato = undefined;
+    });
   }
 
-
-  perform(){
-    console.log("chiaoooo")
+  perform() {
+    console.log('chiaoooo');
   }
-
-
 }
